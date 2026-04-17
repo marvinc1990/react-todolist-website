@@ -1,0 +1,36 @@
+Readme -> archivo guía del proyecto
+
+package.json -> archivo de configuración
+    "start": "react-scripts start" -> ejecutar nuestro proyecto
+    "build": "react-scripts build" -> construir el proyecto para el despliegue
+    "eject": "react-scripts eject"
+
+    "eslintConfig": { --> Recomendaciones sobre la configuración
+    "extends": [
+      "react-app"
+    ]
+    }
+
+    "browserslist": { --> lista de navegadores -> ayuda a saber a que version de javascript debe traspilar el proyecto
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+
+.gitignore -> archivo para ignorar en el commit
+
+index.html -> estructura html del proyecto
+  <div id="root"></div> --> React insertará todo el contenido aquí
+
+manifest.json -> archivo que actua como mapa o configuración de aplicaciones web progresivas (PWAs) y extensiones de navegadores
+ Permite definir metadatos críticos como el nombre, iconos, color de tema y URL de inicio, 
+ lo que facilita al navegador instalar la web en el dispositivo del usuario.
+
+robots.txt -> archivo para saber a que se puede hacer web scraping
