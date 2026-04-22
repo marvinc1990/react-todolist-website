@@ -1,8 +1,21 @@
+import './ToDoCounter.css';
+
+/*const estilos = {
+    backgroundColor: 'red'
+}*/
+
 function ToDoCounter({ completed, total }) {
-//function ToDoCounter(props) {
     return (
-        <h1>Has completado {completed} de {total} ToDos</h1>
-        //<h1>Has completado {props.completed} de {props.total} ToDos</h1>
+        /*<h1 style={{
+            fontSize: '24px',
+            textAlign: 'center',
+            margin: 0,
+            padding: '48px'
+        }}>*/
+        //<h1 style={estilos}>
+        <h1 className="TodoCounter">
+            Has completado <span>{completed}</span> de <span>{total}</span> ToDos
+        </h1>
     );
 }
 

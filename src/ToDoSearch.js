@@ -1,6 +1,8 @@
+import './TodoSearch.css';
+
 function ToDoSearch() {
     return (
-        <input type="text" placeholder="Leer un libro ..."></input>
+        <input className="TodoSearch" type="text" placeholder="Leer un libro ..."></input>
     );
 }
 
