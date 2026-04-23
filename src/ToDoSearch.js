@@ -5,7 +5,7 @@ function ToDoSearch({ searchValue, setSearchValue }) {
         <input
             className="TodoSearch"
             type="text"
-            placeholder="Leer un libro ..."
+            placeholder="Buscar ..."
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}></input>
     );
