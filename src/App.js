@@ -1,9 +1,9 @@
 import React from 'react';
-import { ToDoCounter } from './ToDoCounter';
-import { ToDoSearch } from './ToDoSearch';
-import { ToDoList } from './ToDoList';
-import { ToDoItem } from './ToDoItem';
-import { ToDoCreateButton } from './ToDoCreateButton';
+import { ToDoCounter } from './components/TodoCounter/ToDoCounter';
+import { ToDoSearch } from './components/TodoSearch/ToDoSearch';
+import { ToDoList } from './components/TodoList/ToDoList';
+import { ToDoItem } from './components/TodoItem/ToDoItem';
+import { ToDoCreateButton } from './components/TodoCreateButton/ToDoCreateButton';
 
 const defaultToDos = [
   { id: 1, text: "Lavarse los dientes", completed: true },
