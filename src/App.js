@@ -25,6 +25,19 @@ function App() {
     .filter(t => t.text.toLowerCase()
       .includes(searchValue.toLowerCase()));
 
+  /* Creamos función Complete */
+  const completeToDo = (id) => {
+    const listUpdated = listToDos.map(item => item.id === id
+      ? { ...item, completed: !item.completed } : item);
+    setListToDos(listUpdated);
+  };
+
+  /* Creamos función Delete */
+  const deleteToDo = (id) => {
+    const listUpdated = listToDos.filter(item => item.id !== id);
+    setListToDos(listUpdated);
+  };
+
   return (
     <>
       <ToDoCounter completed={completed} total={total} />
@@ -32,10 +45,11 @@ function App() {
       <ToDoList>
         {toDofiltered.map(todo => (
           <ToDoItem
-            todo={todo}
             key={todo.id}
-            listToDos={listToDos}
-            setListToDos={setListToDos}
+            text={todo.text}
+            completed={todo.completed}
+            onCompleted={() => { completeToDo(todo.id) }}
+            onDeleted={() => { deleteToDo(todo.id) }}
           />
         ))}
       </ToDoList>

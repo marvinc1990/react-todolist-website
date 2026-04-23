@@ -1,20 +1,14 @@
 import './ToDoCounter.css';
 
-/*const estilos = {
-    backgroundColor: 'red'
-}*/
-
 function ToDoCounter({ completed, total }) {
+    const isAllCompleted = completed === total && total !== 0;
     return (
-        /*<h1 style={{
-            fontSize: '24px',
-            textAlign: 'center',
-            margin: 0,
-            padding: '48px'
-        }}>*/
-        //<h1 style={estilos}>
         <h1 className="TodoCounter">
-            Has completado <span>{completed}</span> de <span>{total}</span> ToDos
+            {isAllCompleted ? (
+                <div>🎉 ¡Felicidades! Completaste todos tus ToDos ({total})</div>
+            ) : (
+                <div>Has completado <span>{completed}</span> de <span>{total}</span> ToDos</div>
+            )}
         </h1>
     );
 }
