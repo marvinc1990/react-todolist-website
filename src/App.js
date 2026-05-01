@@ -5,16 +5,21 @@ import { ToDoList } from './components/TodoList/ToDoList';
 import { ToDoItem } from './components/TodoItem/ToDoItem';
 import { ToDoCreateButton } from './components/TodoCreateButton/ToDoCreateButton';
 
-const defaultToDos = [
+/*const defaultToDos = [
   { id: 1, text: "Lavarse los dientes", completed: true },
   { id: 2, text: "Tener la cama", completed: false },
   { id: 3, text: "Leer 30 minutos", completed: false },
   { id: 4, text: "Tomar 2 Lts de agua", completed: false }
 ];
 
+localStorage.setItem('TODOS_V1', JSON.stringify(defaultToDos));
+localStorage.removeItem('TODOS_V1');*/
+
 function App() {
 
-  const [listToDos, setListToDos] = React.useState(defaultToDos);
+  let parsedToDos = JSON.parse(localStorage.getItem('TODOS_V1')) || [];
+
+  const [listToDos, setListToDos] = React.useState(parsedToDos);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completed = listToDos.filter(t => t.completed).length;
@@ -29,14 +34,20 @@ function App() {
   const completeToDo = (id) => {
     const listUpdated = listToDos.map(item => item.id === id
       ? { ...item, completed: !item.completed } : item);
-    setListToDos(listUpdated);
+    saveToDos(listUpdated);
   };
 
   /* Creamos función Delete */
   const deleteToDo = (id) => {
     const listUpdated = listToDos.filter(item => item.id !== id);
-    setListToDos(listUpdated);
+    saveToDos(listUpdated);
   };
+
+  /* Actualizar localstorage */
+  const saveToDos = (newToDos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newToDos));
+    setListToDos(newToDos);
+  }
 
   return (
     <>
