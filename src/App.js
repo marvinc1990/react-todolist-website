@@ -15,11 +15,31 @@ import { ToDoCreateButton } from './components/TodoCreateButton/ToDoCreateButton
 localStorage.setItem('TODOS_V1', JSON.stringify(defaultToDos));
 localStorage.removeItem('TODOS_V1');*/
 
+function useLocalStorage(itemName, initialValue) {
+
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStorageItem);
+  }
+
+  const [item, setItem] = React.useState(parsedItem);
+
+  /* Actualizar localstorage */
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  };
+
+  return [item, saveItem];
+}
+
 function App() {
 
-  let parsedToDos = JSON.parse(localStorage.getItem('TODOS_V1')) || [];
-
-  const [listToDos, setListToDos] = React.useState(parsedToDos);
+  const [listToDos, saveToDos] = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completed = listToDos.filter(t => t.completed).length;
@@ -42,12 +62,6 @@ function App() {
     const listUpdated = listToDos.filter(item => item.id !== id);
     saveToDos(listUpdated);
   };
-
-  /* Actualizar localstorage */
-  const saveToDos = (newToDos) => {
-    localStorage.setItem('TODOS_V1', JSON.stringify(newToDos));
-    setListToDos(newToDos);
-  }
 
   return (
     <>
