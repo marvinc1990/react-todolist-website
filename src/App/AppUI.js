@@ -4,12 +4,18 @@ import { ToDoList } from '../components/TodoList/index';
 import { ToDoItem } from '../components/TodoItem/index';
 import { ToDoCreateButton } from '../components/TodoCreateButton/index';
 
-function AppUI({ completed, total, searchValue, setSearchValue, toDofiltered, completeToDo, deleteToDo }) {
+/* Componente UI principal para la aplicación, separado de la lógica */
+function AppUI({ completed, total, searchValue, setSearchValue, toDofiltered, completeToDo, deleteToDo, loading, error }) {
     return (
         <>
             <ToDoCounter completed={completed} total={total} />
             <ToDoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
             <ToDoList>
+
+                {loading && <p>Estamos cargando...</p>}
+                {error && <p>Hubo un error...</p>}
+                {(!loading && !error && toDofiltered.length === 0) && <p>Crea tu primer ToDo</p>}
+
                 {toDofiltered.map(todo => (
                     <ToDoItem
                         key={todo.id}
