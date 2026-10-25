@@ -40,7 +40,7 @@ function useLocalStorage(itemName, initialValue) {
                 setError(true);
                 setLoading(false);
             }
-        }, 2000);
+        }, 3000);
     }, []);
 
     /* Función para actualizar el localStorage */
