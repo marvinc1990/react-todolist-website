@@ -8,6 +8,8 @@ function TodoProvider({ children }) {
 
     /* Inicializar el valor de búsqueda */
     const [searchValue, setSearchValue] = React.useState('');
+    /* Inicializar el estado del modal */
+    const [openModal, setOpenModal] = React.useState(false);
 
     /* Obtener lista de items, función para guardar, y estados de carga y error */
     const {
@@ -36,7 +38,8 @@ function TodoProvider({ children }) {
             completeToDo,
             deleteToDo,
             loading,
-            error
+            error,
+            openModal
         }}>
             {children}
         </TodoContext.Provider>

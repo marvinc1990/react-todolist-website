@@ -8,6 +8,7 @@ import { TodoLoading } from '../components/TodoLoading/index';
 import { TodoError } from '../components/TodoError/index';
 import { TodoEmpty } from '../components/TodoEmpty/index';
 import { TodoContext } from '../components/TodoContext';
+import { TodoModal } from '../components/TodoModal/index';
 
 /* Componente UI principal para la aplicación, separado de la lógica */
 function AppUI() {
@@ -17,7 +18,8 @@ function AppUI() {
         error,
         toDofiltered,
         completeToDo,
-        deleteToDo
+        deleteToDo,
+        openModal
     } = React.useContext(TodoContext);
 
     return (
@@ -55,6 +57,11 @@ function AppUI() {
             </TodoContext.Consumer>*/}
 
             <ToDoCreateButton />
+            {openModal && (
+                <TodoModal>
+                    La funcionalidad del modal.
+                </TodoModal>
+            )}
         </>
     );
 }
