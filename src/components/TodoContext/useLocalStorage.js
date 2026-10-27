@@ -53,3 +53,13 @@ function useLocalStorage(itemName, initialValue) {
 }
 
 export { useLocalStorage };
+
+/*const defaultToDos = [
+  { id: 1, text: "Lavarse los dientes", completed: true },
+  { id: 2, text: "Tender la cama", completed: false },
+  { id: 3, text: "Leer 30 minutos", completed: false },
+  { id: 4, text: "Tomar 2 Lts de agua", completed: false }
+];
+
+localStorage.setItem('TODOS_V1', JSON.stringify(defaultToDos));
+localStorage.removeItem('TODOS_V1');*/
