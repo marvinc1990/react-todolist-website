@@ -19,7 +19,8 @@ function AppUI() {
         toDofiltered,
         completeToDo,
         deleteToDo,
-        openModal
+        openModal,
+        setOpenModal
     } = React.useContext(TodoContext);
 
     return (
@@ -56,7 +57,7 @@ function AppUI() {
                 )}
             </TodoContext.Consumer>*/}
 
-            <ToDoCreateButton />
+            <ToDoCreateButton setOpenModal={setOpenModal} />
             {openModal && (
                 <TodoModal>
                     La funcionalidad del modal.

@@ -39,7 +39,8 @@ function TodoProvider({ children }) {
             deleteToDo,
             loading,
             error,
-            openModal
+            openModal,
+            setOpenModal
         }}>
             {children}
         </TodoContext.Provider>
