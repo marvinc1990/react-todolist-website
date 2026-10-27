@@ -9,6 +9,7 @@ import { TodoError } from '../components/TodoError/index';
 import { TodoEmpty } from '../components/TodoEmpty/index';
 import { TodoContext } from '../components/TodoContext';
 import { TodoModal } from '../components/TodoModal/index';
+import { TodoForm } from '../components/TodoForm';
 
 /* Componente UI principal para la aplicación, separado de la lógica */
 function AppUI() {
@@ -60,7 +61,7 @@ function AppUI() {
             <ToDoCreateButton setOpenModal={setOpenModal} />
             {openModal && (
                 <TodoModal>
-                    La funcionalidad del modal.
+                    <TodoForm />
                 </TodoModal>
             )}
         </>

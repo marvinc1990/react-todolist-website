@@ -24,7 +24,18 @@ function useTodoService(listToDos, searchValue, saveToDos) {
         saveToDos(listUpdated);
     };
 
-    return { completed, total, toDofiltered, completeToDo, deleteToDo };
+    /* Función para añadir un nuevo ToDo */
+    const addToDo = (newTodoText) => {
+        const newTodos = [...listToDos];
+        newTodos.push({
+            id: new Date().getTime(), // Genera un ID único basado en la fecha y hora actual
+            text: newTodoText,
+            completed: false,
+        });
+        saveToDos(newTodos);
+    }
+
+    return { completed, total, toDofiltered, completeToDo, deleteToDo, addToDo };
 
 }
 

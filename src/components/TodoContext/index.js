@@ -25,7 +25,8 @@ function TodoProvider({ children }) {
         total,
         toDofiltered,
         completeToDo,
-        deleteToDo
+        deleteToDo,
+        addToDo
     } = useTodoService(listToDos, searchValue, saveToDos);
 
     return (
@@ -40,7 +41,8 @@ function TodoProvider({ children }) {
             loading,
             error,
             openModal,
-            setOpenModal
+            setOpenModal,
+            addToDo
         }}>
             {children}
         </TodoContext.Provider>
